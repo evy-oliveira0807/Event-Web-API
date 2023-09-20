@@ -8,32 +8,43 @@ namespace webapi.event_.manha.Repositories
     public class UsuarioRepository : IUsuarioRepository
     {
         private readonly EventContext _eventContext;
-        private Usuario usuarioBuscado;
 
         public UsuarioRepository()
         {
             _eventContext = new EventContext();
         }
+
         public Usuario BuscarPorEmailESenha(string email, string senha)
         {
             try
             {
-                Usuario usuarioBuscado = _eventContext.Usuario.FirstOrDefault(u => u.Email == email)!;
+                Usuario usuarioBuscado = _eventContext.Usuario
+                    .Select(u => new Usuario
+                    {
+                        IdUsuario = u.IdUsuario,
+                        Nome = u.Nome,
+                        Email = u.Email,
+                        Senha = u.Senha,
+                        TiposUsuario = new TiposUsuario
+                        {
+                            IdTipoUsuario = u.IdTipoUsuario,
+                            Titulo = u.TiposUsuario!.Titulo
+                        }
+                    }).FirstOrDefault(u => u.Email == email)!;
 
                 if (usuarioBuscado != null)
                 {
-                   bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Email);
+                    bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha!);
 
-                    if (confere) 
+                    if (confere)
                     {
-                    return usuarioBuscado;
+                        return usuarioBuscado;
                     }
                 }
-                return null;
+                return null!;
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -42,30 +53,35 @@ namespace webapi.event_.manha.Repositories
         {
             try
             {
-                Usuario usuario = _eventContext.Usuario
-                     .Select(u => new Usuario
-                     {
-                         IdUsuario = u.IdUsuario,
-                         Nome = u.Nome,
-                         TiposUsuario = new TiposUsuario
-                         {
-                             IdTipoUsuario = u.IdTipoUsuario,
-                             Titulo = u.TiposUsuario.Titulo
-                         }
+                Usuario usuarioBuscado = _eventContext.Usuario
+                    .Select(u => new Usuario
+                    {
+                        IdUsuario = u.IdUsuario,
+                        Nome = u.Nome,
+                        Email = u.Email,
+                        Senha = u.Senha,
+                        TiposUsuario = new TiposUsuario
+                        {
+                            IdTipoUsuario = u.IdTipoUsuario,
+                            Titulo = u.TiposUsuario!.Titulo
+                        }
+                    }).FirstOrDefault(u => u.IdUsuario == id)!;
 
-                     }).FirstOrDefault(u => u.IdUsuario == id)!;
                 if (usuarioBuscado != null)
                 {
                     return usuarioBuscado;
                 }
-                return null;
-
+                return null!;
             }
             catch (Exception)
             {
-
                 throw;
             }
+        }
+
+        public Usuario BuscarUsuario(string? email, string? senha)
+        {
+            throw new NotImplementedException();
         }
 
         public void Cadastrar(Usuario usuario)
@@ -80,7 +96,6 @@ namespace webapi.event_.manha.Repositories
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

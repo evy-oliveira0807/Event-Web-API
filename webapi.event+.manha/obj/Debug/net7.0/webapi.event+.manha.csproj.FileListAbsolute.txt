@@ -83,3 +83,13 @@ C:\Users\53143873876\Desktop\event+.manha.CF\webapi.event+.manha\obj\Debug\net7.
 C:\Users\53143873876\Desktop\event+.manha.CF\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.pdb
 C:\Users\53143873876\Desktop\event+.manha.CF\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.genruntimeconfig.cache
 C:\Users\53143873876\Desktop\event+.manha.CF\webapi.event+.manha\obj\Debug\net7.0\ref\webapi.event+.manha.dll
+C:\Users\53143873876\Desktop\Event-Web-API\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.csproj.AssemblyReference.cache
+C:\Users\53143873876\Desktop\Event-Web-API\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\53143873876\Desktop\Event-Web-API\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.AssemblyInfoInputs.cache
+C:\Users\53143873876\Desktop\Event-Web-API\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.AssemblyInfo.cs
+C:\Users\53143873876\Desktop\Event-Web-API\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.csproj.CoreCompileInputs.cache
+C:\Users\53143873876\Desktop\Event-Web-API\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\53143873876\Desktop\Event-Web-API\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\53143873876\Desktop\Event-Web-API\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.dll
+C:\Users\53143873876\Desktop\Event-Web-API\webapi.event+.manha\obj\Debug\net7.0\refint\webapi.event+.manha.dll
+C:\Users\53143873876\Desktop\Event-Web-API\webapi.event+.manha\obj\Debug\net7.0\webapi.event+.manha.pdb

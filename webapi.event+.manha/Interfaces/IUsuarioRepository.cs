@@ -8,7 +8,8 @@ namespace webapi.event_.manha.Interfaces
 
         Usuario BuscarPorId(Guid id);
 
-        Usuario BuscarPorEmailESenha(String email, string senha);
+        Usuario BuscarPorEmailESenha(string email, string senha);
         Usuario BuscarUsuario(string? email, string? senha);
     }
+}
  

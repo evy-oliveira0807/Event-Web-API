@@ -8,6 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Interfaces\IInstituicao.cs" />
+    <Compile Remove="Repositories\ComentariosEvento.cs" />
+    <Compile Remove="Repositories\Evento.cs" />
+    <Compile Remove="Repositories\Instituicao.cs" />
+    <Compile Remove="Repositories\PresencaEvento.cs" />
+    <Compile Remove="Repositories\TiposEvento.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt" Version="1.0.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11" />

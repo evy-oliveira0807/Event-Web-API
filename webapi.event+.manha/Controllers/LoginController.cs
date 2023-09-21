@@ -36,14 +36,14 @@ namespace webapi.event_.manha.Controllers
                 }
 
 
-                if (usuarioBuscado == null)
+
                 //Caso encontre o usuario, prossegue oara a criação do token
 
                 //1º definir as informaçãoes(claims) que serão forncedodas no token (PAYLOAD)
 
+
+                var claims = new[]
                 {
-                    var claims = new[]
-                    {
                         new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                         new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email!),
                         new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.Senha!),
@@ -51,52 +51,47 @@ namespace webapi.event_.manha.Controllers
 
                     };
 
-                    //2º Definira a chave de acesso ao token                             (mais mudar para o nome do seu projeto)
+                //2º Definira a chave de acesso ao token                             (mais mudar para o nome do seu projeto)
 
-                    var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("projeto-event-webapi-chave-autenticacao"));
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("projeto-event-webapi-chave-autenticacao"));
 
-                    //3º Definir as credencias do token (HEADER)
-                    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                //3º Definir as credencias do token (HEADER)
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-                    //4º Gerar token
-                    var token = new JwtSecurityToken(
-                               //emissor do token (mais mudar para o nome do seu projeto)
-                               issuer: "webapi.event+.manha",
+                //4º Gerar token
+                var token = new JwtSecurityToken(
+                        //emissor do token (mais mudar para o nome do seu projeto)
+                        issuer: "webapi.event+.manha",
 
-                             //destinatário do token (mais mudar para o nome do seu projeto)
-                             audience: "webapi.event+.manha",
+                        //destinatário do token (mais mudar para o nome do seu projeto)
+                        audience: "webapi.event+.manha",
 
-                             //dados definidos nas Claims(informações)
-                             claims: claims,
+                        //dados definidos nas Claims(informações)
+                        claims: claims,
 
-                            //tempo de expiração do token
-                            expires: DateTime.Now.AddMinutes(5),
+                        //tempo de expiração do token
+                        expires: DateTime.Now.AddMinutes(5),
 
-                          //Credenciais do Token
-                          signingCredentials: creds
-                          );
+                        //Credenciais do Token
+                        signingCredentials: creds
+                        );
+
+                //5º retornar o token criado
+
+                return Ok(new
+                {
+
+                    token = new JwtSecurityTokenHandler().WriteToken(token)
+
+                });
 
 
-
-                    //5º retornar o token criado
-
-                    return Ok(new
-                    {
-
-                        token = new JwtSecurityTokenHandler().WriteToken(token)
-
-                    });
-                }
-                return NotFound("Email ou Senha Inválidos!!");
             }
             catch (Exception e)
             {
                 return BadRequest(e.Message);
             }
-
-
         }
     }
 
 }
-

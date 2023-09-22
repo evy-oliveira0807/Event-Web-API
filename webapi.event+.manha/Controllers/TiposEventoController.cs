@@ -28,10 +28,54 @@ namespace webapi.event_.manha.Controllers
             catch (Exception e)
             {
 
-                return BadRequest(e);
+                return BadRequest(e.Message);
             }
         }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(_tiposEventoRepository.Listar());
 
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(Guid id)
+        {
+            try
+            {
+                _tiposEventoRepository.Deletar(id);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
+        [HttpPut("{id}")]
+        public IActionResult Put(Guid id, TiposEvento tiposEvento)
+        {
+            try
+            {
+                _tiposEventoRepository.Atualizar(id, tiposEvento);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
+
+
+
 

@@ -9,6 +9,6 @@ namespace webapi.event_.manha.Interfaces
         List<Evento> Listar(Guid id);
         Evento BuscarPorId(Guid id);
         void Atualizar(Guid id, Evento evento);
-        
+        object? Listar();
     }
 }

@@ -14,29 +14,38 @@ namespace webapi.event_.manha.Repositories
         }
         public void Atualizar(Guid id, TiposEvento tiposEvento)
         {
-            throw new NotImplementedException();
-        }
+            TiposEvento eventoBuscado = _eventContext.TiposEvento.Find(id)!;
 
-        public TiposEvento BuscarPorId(Guid id)
-        {
-            throw new NotImplementedException();
+            if (eventoBuscado != null)
+            {
+                eventoBuscado.Titulo = tiposEvento.Titulo;
+            }
+            _eventContext.TiposEvento.Update(eventoBuscado!);
+
+            _eventContext.SaveChanges();
         }
 
         public void Cadastrar(TiposEvento tiposEvento)
         {
-           
-           _eventContext.TiposEvento.Add(tiposEvento);
+
+            _eventContext.TiposEvento.Add(tiposEvento);
             _eventContext.SaveChanges();
         }
 
         public void Deletar(Guid id)
         {
-            throw new NotImplementedException();
+            TiposEvento eventoBuscado = _eventContext.TiposEvento.Find(id)!;
+
+            _eventContext.TiposEvento.Remove(eventoBuscado);
+
+            _eventContext.SaveChanges();
         }
 
         public List<TiposEvento> Listar()
         {
-            throw new NotImplementedException();
+            return _eventContext.TiposEvento.ToList();
         }
     }
 }
+
+

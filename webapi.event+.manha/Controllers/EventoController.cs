@@ -42,12 +42,12 @@ namespace webapi.event_.manha.Controllers
             }
             catch (Exception e)
             {
-
-                return BadRequest(e.Message);
+                return BadRequest($"{e.Message}");
             }
         }
 
-        [HttpDelete("{id}")]
+
+            [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
             try

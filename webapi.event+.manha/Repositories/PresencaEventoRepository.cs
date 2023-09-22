@@ -20,10 +20,10 @@ namespace webapi.event_.manha.Repositories
 
         public void Cadastrar(PresencaEvento presencaEvento)
         {
+            
+            //_eventContext.PresencaEvento.Add(presencaEvento);
 
-            _eventContext.PresencaEvento.Add(presencaEvento);
-
-            _eventContext.SaveChanges();
+            //_eventContext.SaveChanges();
         }
 
         public void Deletar(Guid id)

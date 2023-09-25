@@ -10,5 +10,6 @@ namespace webapi.event_.manha.Interfaces
         PresencaEvento BuscarPorId(Guid id);
         void Atualizar(Guid id, PresencaEvento presencaEvento);
 
+        List<PresencaEvento> ListarPresencasUser(Guid idUsuario);
     }
 }

@@ -9,5 +9,6 @@ namespace webapi.event_.manha.Interfaces
         List<ComentariosEvento> Listar(Guid id);
         ComentariosEvento BuscarPorId(Guid id);
         void Atualizar(Guid id, ComentariosEvento comentariosEvento);
+     
     }
 }
